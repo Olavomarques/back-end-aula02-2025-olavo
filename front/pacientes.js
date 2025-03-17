@@ -1,4 +1,3 @@
-//Enviar os dados do formulário para o servidor
 const cadastro = document.getElementById('cadastro');
 cadastro.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -24,7 +23,7 @@ cadastro.addEventListener('submit', (event) => {
         });
 });
 
-//Receber os dados do servidor e exibir na tabela
+
 fetch('http://localhost:4000/clientes')
     .then(response => response.json())
     .then(clientes => {
@@ -42,7 +41,7 @@ fetch('http://localhost:4000/clientes')
         });
     });
 
-//Função que edita um cliente enviando o ID e os dados para o servidor
+
 function alterar(e) {
     const id = e.parentNode.parentNode.children[0].textContent
     const corpo = {
@@ -65,7 +64,7 @@ function alterar(e) {
         });
 }
 
-//Função que exclui um cliente enviando o ID para o servidor
+
 function excluir(id_cliente) {
     fetch(`http://localhost:4000/clientes/${id_cliente}`, {
         method: 'DELETE'
@@ -80,7 +79,7 @@ function excluir(id_cliente) {
         });
 }
 
-//Função para exibir mensagens durante 3 segundos
+
 function msg3(mensagem) {
     msg = document.getElementById('msg');
     msg.innerHTML = mensagem;
